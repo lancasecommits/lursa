@@ -1,0 +1,48 @@
+<% if logged_in? %>
+  <h2 class="purple title">Olá, <%= current_user.name.capitalize %>!</h2>
+<% else %>
+  <div class="centered">
+    <img src="/imgs/logo.png" alt="lursa-logo">
+    <h1 class="purple title">Lursa</h1>
+  </div>
+<% end %>
+<div class="home-section">
+  <div class="home-section-header">
+    <h2><i class="fa-solid fa-feather"></i> Posts recentes</h2>
+    <a href="/blog">ver todos →</a>
+  </div>
+
+  <% if @posts.empty? %>
+    <p class="muted">Nenhum post ainda. :(</p>
+  <% else %>
+    <% @posts.each do |post| %>
+      <a href="/blog/<%= post[:id] %>" class="post-card">
+        <div class="post-card-inner">
+          <h2><%= post[:title] %></h2>
+          <span class="muted"><%= post[:created_at].to_s[0..9] %></span>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+    <% end %>
+  <% end %>
+</div>
+<div class="home-section">
+  <div class="home-section-header">
+    <h2><i class="fa-solid fa-basket-shopping"></i> Produtos em destaque</h2>
+    <a href="/catalog">ver todos →</a>
+  </div>
+
+  <% if @products.empty? %>
+    <p class="muted">Nenhum produto ainda. :(</p>
+  <% else %>
+    <div class="products-grid">
+      <% @products.each do |p| %>
+        <div class="product-card card">
+          <h3><%= p[:name] %></h3>
+          <p class="muted"><%= p[:description].to_s[0..80] %><%= "..." if p[:description].to_s.length > 80 %></p>
+          <span class="points-badge"><%= p[:points] %> $L</span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

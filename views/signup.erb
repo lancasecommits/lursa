@@ -1,0 +1,11 @@
+
+  <h1 class="purple title">Criar conta</h1>
+  <h2>Já tem conta? <a href="/login">Entre</a></h2>
+  <% if @error %><p class="error"><%= @error %></p><% end %>
+  <form action="/signup" method="post">
+    <input type="text"     name="name"     placeholder="Nome"  required>
+    <input type="email"    name="email"    placeholder="Email" required>
+    <input type="password" name="password" placeholder="Senha (mín. 6 caracteres)" required>
+    <button class="btn-roxo" type="submit">Criar conta</button>
+  </form>
+

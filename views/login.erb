@@ -1,0 +1,10 @@
+
+  <h1 class="purple title">Entrar</h1>
+  <h2>Não tem conta? <a href="/signup">Cadastre-se</a></h2>
+  <% if @error %><p class="error"><%= @error %></p><% end %>
+  <form action="/login" method="post">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Senha" required>
+    <button class="btn-roxo" type="submit">Entrar</button>
+  </form>
+

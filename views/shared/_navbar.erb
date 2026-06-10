@@ -1,0 +1,46 @@
+<nav class="navbar">
+  <ul class="navbar-links">
+    <li>
+      <a href="/"><i class="fa-regular fa-house"></i></a>
+    </li>
+    <li>
+      <a href="/points"><i class="fa-solid fa-location-pin"></i></a>
+    </li>
+
+    <li>
+      <a href="/blog"><i class="fa-solid fa-feather"></i></a>
+    </li>
+
+    <li>
+      <a href="/catalog"><i class="fa-solid fa-basket-shopping"></i></a>
+    </li>
+
+    <% if logged_in? %>
+
+      <% if admin? %>
+        <li>
+          <a href="/admin"><i class="fa-solid fa-gear"></i></a>
+        </li>
+      <% end %>
+
+      <li>
+        <a href="/profile"><i class="fa-regular fa-circle-user"></i></a>
+      </li>
+
+      <li>
+        <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+      </li>
+
+    <% else %>
+
+      <li>
+        <a href="/login" class="green">Entrar</a>
+      </li>
+
+      <li>
+        <a href="/signup" class="green">Cadastrar</a>
+      </li>
+
+    <% end %>
+  </ul>
+</nav>

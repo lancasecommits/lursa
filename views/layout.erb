@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Lursa</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/discard.css">
+  <script src="https://kit.fontawesome.com/7738fed5c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <%= erb :"shared/_navbar" %>
+  <main>
+    <%= yield %>
+  </main>
+  <script>
+    document.addEventListener("submit", function(e) {
+      const form = e.target;
+      const m = form.querySelector('input[name="_method"]');
+      if (m && m.value.toUpperCase() === "DELETE") {
+        e.preventDefault();
+        const f = document.createElement("form");
+        f.method = "POST";
+        f.action = form.action + "?_method=DELETE";
+        document.body.appendChild(f);
+        f.submit();
+      }
+    });
+  </script>
+</body>
+</html>

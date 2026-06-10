@@ -1,0 +1,251 @@
+.discard-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.discard-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #7878a0;
+  font-size: 13px;
+  background: #1a1a2b;
+  border: 1px solid #2e2e50;
+  border-radius: 50px;
+  padding: 5px 14px;
+}
+
+.discard-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.discard-hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(124, 77, 255, 0.12);
+  border: 2px solid rgba(124, 77, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #7c4dff;
+  margin-bottom: 8px;
+}
+
+.discard-hero h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #f0f0fa;
+}
+
+.discard-point-name {
+  font-size: 17px;
+  color: #f0f0fa;
+  margin-top: 2px;
+}
+
+.discard-reward-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(124, 77, 255, 0.08);
+  border: 1.5px solid rgba(124, 77, 255, 0.25);
+  border-radius: 16px;
+  padding: 18px 40px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.discard-reward-label {
+  font-size: 12px;
+  color: #7878a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.discard-reward-value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #7c4dff;
+  line-height: 1;
+}
+
+.discard-currency {
+  font-size: 1.4rem;
+  opacity: 0.7;
+}
+
+.discard-checklist {
+  background: #1a1a2b;
+  border: 1px solid #2e2e50;
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: 100%;
+  max-width: 380px;
+  text-align: left;
+}
+
+.discard-checklist-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7878a0;
+  margin-bottom: 10px;
+}
+
+.discard-checklist ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.discard-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: #f0f0fa;
+}
+
+.discard-checklist li i {
+  color: #69f0ae;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.btn-discard-confirm {
+  width: 100%;
+  gap: 8px;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* tela de sucesso */
+.discard-done-page {
+  padding-top: 30px;
+}
+
+.discard-done-animation {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discard-done-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid #69f0ae;
+  opacity: 0.5;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  70%  { transform: scale(1.3); opacity: 0;   }
+  100% { transform: scale(1.3); opacity: 0;   }
+}
+
+.discard-done-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(105, 240, 174, 0.12);
+  border: 2px solid rgba(105, 240, 174, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #69f0ae;
+}
+
+.discard-done-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #f0f0fa;
+}
+
+.discard-done-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(105, 240, 174, 0.07);
+  border: 1.5px solid rgba(105, 240, 174, 0.25);
+  border-radius: 16px;
+  padding: 18px 40px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.discard-done-reward-label {
+  font-size: 12px;
+  color: #7878a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.discard-done-reward-value {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #69f0ae;
+  line-height: 1;
+}
+
+.discard-done-balance {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #1a1a2b;
+  border: 1px solid #2e2e50;
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: #7878a0;
+}
+
+.discard-done-balance strong {
+  color: #ffd740;
+}
+
+.discard-done-point-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #7878a0;
+  background: #1a1a2b;
+  border: 1px solid #2e2e50;
+  border-radius: 50px;
+  padding: 5px 14px;
+}
+
+.discard-done-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.discard-done-actions .btn-roxo,
+.discard-done-actions .btn-secondary {
+  gap: 7px;
+}

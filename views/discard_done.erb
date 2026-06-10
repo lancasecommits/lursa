@@ -1,0 +1,41 @@
+<div class="discard-page discard-done-page">
+
+  <div class="discard-done-animation">
+    <div class="discard-done-ring"></div>
+    <div class="discard-done-icon">
+      <i class="fa-solid fa-check"></i>
+    </div>
+  </div>
+
+  <h1 class="discard-done-title">Descarte registrado!</h1>
+  <p class="muted" style="margin-top:6px;">
+    Obrigado, <strong style="color:var(--texto);"><%= current_user.name.split.first.capitalize %></strong>!
+  </p>
+
+  <div class="discard-done-reward">
+    <span class="discard-done-reward-label">Pontos ganhos</span>
+    <span class="discard-done-reward-value">+<%= @points_earned %> $L</span>
+  </div>
+
+  <div class="discard-done-balance">
+    <i class="fa-solid fa-wallet"></i>
+    Saldo atual: <strong><%= @updated_user.points %> $L</strong>
+  </div>
+
+  <div class="discard-done-point-info">
+    <i class="fa-solid fa-location-dot" style="color:var(--roxo);"></i>
+    <%= @point[:name] %> — <%= @point[:address] %>
+  </div>
+
+  <div class="discard-done-actions">
+    <a href="/catalog" class="btn-roxo">
+      <i class="fa-solid fa-gift"></i>
+      Ver catálogo
+    </a>
+    <a href="/profile" class="btn-secondary">
+      <i class="fa-solid fa-user"></i>
+      Meu perfil
+    </a>
+  </div>
+
+</div>

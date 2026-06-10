@@ -1,0 +1,162 @@
+/* seções da home */
+.home-section {
+  margin-top: 40px;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2e2e50;
+}
+
+.home-section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.home-section-header a {
+  font-size: 13px;
+  color: #7878a0;
+}
+
+.home-section-header a:hover {
+  color: #7c4dff;
+}
+
+/* grid de produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.product-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.product-card .muted {
+  flex: 1;
+}
+
+/* blog */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.post-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: #1a1a2b;
+  border: 1px solid #2e2e50;
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: #f0f0fa;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.post-card:hover {
+  border-color: #7c4dff;
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+.post-card-inner h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.post-arrow {
+  color: #7c4dff;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* post individual */
+.post-full {
+  margin-top: 10px;
+}
+
+.post-full .title {
+  margin: 12px 0 6px;
+}
+
+.post-content {
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  border-top: 1px solid #2e2e50;
+  padding-top: 25px;
+}
+
+/* mapa de pontos de coleta */
+#map {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  border: 1px solid #2e2e50;
+  margin: 20px 0;
+}
+
+.points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.point-card {
+  cursor: pointer;
+}
+
+.point-card:hover {
+  border-color: #7c4dff;
+}
+
+.map-pin {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1a1a2b !important;
+  color: #f0f0fa !important;
+  border: 1px solid #2e2e50 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: #1a1a2b !important;
+}
+
+.leaflet-popup-close-button {
+  color: #7878a0 !important;
+}
+
+/* qr code */
+.qr-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  border: 1px solid #2e2e50;
+  background: white;
+  padding: 4px;
+}

@@ -1,0 +1,38 @@
+<div class="discard-page">
+
+  <div class="discard-location-tag">
+    <i class="fa-solid fa-location-dot"></i>
+    <%= @point[:address] %>
+  </div>
+
+  <div class="discard-hero">
+    <div class="discard-hero-icon">
+      <i class="fa-solid fa-recycle"></i>
+    </div>
+    <h1>Registrar Descarte</h1>
+    <p class="muted">Você está no ponto de coleta:</p>
+    <strong class="discard-point-name"><%= @point[:name] %></strong>
+  </div>
+
+  <div class="discard-reward-card">
+    <span class="discard-reward-label">Você vai ganhar</span>
+    <span class="discard-reward-value">+<%= @point[:points_per_discard] %> <span class="discard-currency">$L</span></span>
+  </div>
+
+  <div class="discard-checklist">
+    <p class="discard-checklist-title">Antes de confirmar:</p>
+    <ul>
+      <li><i class="fa-solid fa-circle-check"></i> O resíduo foi depositado no local correto</li>
+      <li><i class="fa-solid fa-circle-check"></i> É um resíduo eletrônico (celular, cabo, bateria etc.)</li>
+      <li><i class="fa-solid fa-circle-check"></i> O item não possui dados pessoais acessíveis</li>
+    </ul>
+  </div>
+
+  <form action="/discard/<%= @point[:token] %>" method="post" style="width:100%;max-width:380px;">
+    <button class="btn-roxo btn-large btn-discard-confirm" type="submit">
+      <i class="fa-solid fa-check"></i>
+      Confirmar descarte
+    </button>
+  </form>
+
+</div>

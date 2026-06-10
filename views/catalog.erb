@@ -1,0 +1,34 @@
+
+  <h1 class="purple title">Catálogo</h1>
+
+  <% if @error %>
+    <p class="error"><%= @error %></p>
+  <% end %>
+
+  <% if @products.empty? %>
+    <p class="muted">Nenhum produto cadastrado ainda.</p>
+  <% else %>
+    <% @products.each do |p| %>
+      <article class="card">
+        <h2><%= p[:name] %></h2>
+        <p><%= p[:description] %></p>
+        <p><strong><%= p[:points] %></strong> $L</p>
+
+        <% if logged_in? %>
+          <form action="/catalog/<%= p[:id] %>/redeem" method="post">
+            <button class="btn-roxo" type="submit">Resgatar</button>
+          </form>
+        <% else %>
+          <a href="/login" class="btn-roxo" style="display:inline-block;text-decoration:none;padding:10px 16px;">Entre para resgatar</a>
+        <% end %>
+
+        <% if admin? %>
+          <form action="/admin/products/<%= p[:id] %>" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn-danger" type="submit" onclick="return confirm('Remover produto?')">Remover</button>
+          </form>
+        <% end %>
+      </article>
+    <% end %>
+  <% end %>
+

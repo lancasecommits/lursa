@@ -1,0 +1,23 @@
+<h1 class="purple title">Painel Admin</h1>
+
+<div class="stat-cards-row" style="margin-top:20px;">
+  <div class="card stat-card">
+    <span class="stat-num"><%= @users_count %></span>
+    <p class="muted">Usuários</p>
+  </div>
+  <div class="card stat-card">
+    <span class="stat-num"><%= @posts_count %></span>
+    <p class="muted">Posts</p>
+  </div>
+  <div class="card stat-card">
+    <span class="stat-num"><%= @products_count %></span>
+    <p class="muted">Produtos</p>
+  </div>
+</div>
+
+<ul class="admin-links">
+  <li><a href="/admin/posts/new" class="btn-roxo">+ Novo Post</a></li>
+  <li><a href="/admin/products/new" class="btn-roxo">+ Novo Produto</a></li>
+  <li><a href="/admin/points/new" class="btn-roxo">+ Novo Ponto</a></li>
+  <li><a href="/admin/users" class="btn-roxo">Usuários</a></li>
+</ul>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 class="purple title">Usuários</h1>
+  <div class="table-wrapper"><table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th><th>Email</th><th>Cargo</th><th>Pontos</th><th>Adicionar pontos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+      <tr>
+        <td><%= u[:name] %></td>
+        <td><%= u[:email] %></td>
+        <td><%= u[:role] %></td>
+        <td>⭐ <%= u[:points] %></td>
+        <td>
+          <form action="/admin/users/<%= u[:id] %>/points" method="post" class="points-form">
+            <input type="number" name="amount" min="1" value="10" style="width:70px;">
+            <button class="btn-roxo" type="submit">Adicionar</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table></div>
+</div>

@@ -1,0 +1,17 @@
+<a href="/blog" class="back-link">← Blog</a>
+
+<article class="post-full">
+  <h1 class="purple title"><%= @post[:title] %></h1>
+  <span class="muted"><%= @post[:created_at].to_s[0..9] %></span>
+
+  <div class="post-content">
+    <%= @post[:content] %>
+  </div>
+
+  <% if admin? %>
+    <form action="/admin/posts/<%= @post[:id] %>" method="post" style="margin-top:32px;">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn-danger" type="submit" onclick="return confirm('Remover post?')">Remover post</button>
+    </form>
+  <% end %>
+</article>

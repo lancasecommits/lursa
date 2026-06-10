@@ -1,0 +1,9 @@
+
+  <h1 class="purple title">Novo Post</h1>
+  <% if @error %><p class="error"><%= @error %></p><% end %>
+  <form action="/admin/posts" method="post">
+    <input type="text" name="title" placeholder="Título" required>
+    <textarea name="content" placeholder="Conteúdo..." rows="6" required></textarea>
+    <button class="btn-roxo" type="submit">Publicar</button>
+  </form>
+

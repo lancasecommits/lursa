@@ -1,0 +1,87 @@
+<h1 class="purple title">Pontos de Coleta</h1>
+
+<% if @points.empty? %>
+  <p class="muted" style="margin-top:16px;">Nenhum ponto cadastrado ainda.</p>
+<% else %>
+
+  <div id="map"></div>
+
+  <div class="points-list">
+    <% @points.each do |p| %>
+      <div class="card point-card" data-id="<%= p[:id] %>">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div>
+            <strong><%= p[:name] %></strong>
+            <p class="muted"><%= p[:address] %></p>
+            <span class="points-badge" style="margin-top:6px;">+<%= p[:points_per_discard] %>$L por descarte</span>
+          </div>
+          <div style="text-align:center;flex-shrink:0;">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%= request.base_url %>/discard/<%= p[:token] %>"
+              alt="QR Code"
+              class="qr-img"
+              title="QR Code para <%= p[:name] %>"
+            >
+            <p class="muted" style="font-size:11px;margin-top:4px;">QR Code</p>
+          </div>
+        </div>
+        <% if admin? %>
+          <form action="/admin/points/<%= p[:id] %>" method="post" style="margin-top:10px;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn-danger" type="submit" onclick="return confirm('Remover ponto?')">Remover</button>
+          </form>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if admin? %>
+  <a href="/admin/points/new" class="btn-roxo" style="margin-top:24px;display:inline-flex;">+ Novo Ponto</a>
+<% end %>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<% unless @points.empty? %>
+<script>
+  const points = <%= @points.map { |p| { id: p[:id], name: p[:name], address: p[:address], lat: p[:lat], lng: p[:lng] } }.to_json %>;
+
+  const map = L.map('map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19
+  }).addTo(map);
+
+  const icon = L.divIcon({
+    className: '',
+    html: '<div class="map-pin"><i class="fa-solid fa-location-pin" style="color: #000;"></i></div>',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -34]
+  });
+
+  const bounds = [];
+
+  points.forEach(p => {
+    const marker = L.marker([p.lat, p.lng], { icon })
+      .addTo(map)
+      .bindPopup(`<strong>${p.name}</strong><br>${p.address}`);
+    bounds.push([p.lat, p.lng]);
+
+    const card = document.querySelector(`.point-card[data-id="${p.id}"]`);
+    if (card) {
+      card.addEventListener('click', () => {
+        map.setView([p.lat, p.lng], 16, { animate: true });
+        marker.openPopup();
+      });
+    }
+  });
+
+  if (bounds.length === 1) {
+    map.setView(bounds[0], 15);
+  } else {
+    map.fitBounds(bounds, { padding: [40, 40] });
+  }
+</script>
+<% end %>

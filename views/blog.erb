@@ -1,0 +1,17 @@
+<h1 class="purple title">Blog</h1>
+
+<% if @posts.empty? %>
+  <p class="muted" style="margin-top:16px;">Nenhum post ainda.</p>
+<% else %>
+  <div class="post-list" style="margin-top:24px;">
+    <% @posts.each do |post| %>
+      <a href="/blog/<%= post[:id] %>" class="post-card">
+        <div class="post-card-inner">
+          <h2><%= post[:title] %></h2>
+          <span class="muted"><%= post[:created_at].to_s[0..9] %></span>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+    <% end %>
+  </div>
+<% end %>

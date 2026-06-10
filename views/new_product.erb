@@ -1,0 +1,10 @@
+
+  <h1 class="purple title">Novo Produto</h1>
+  <% if @error %><p class="error"><%= @error %></p><% end %>
+  <form action="/admin/products" method="post">
+    <input type="text" name="name" placeholder="Nome do produto" required>
+    <textarea name="description" placeholder="Descrição..." rows="4"></textarea>
+    <input type="number" name="points" placeholder="Pontos necessários" min="1" required>
+    <button class="btn-roxo" type="submit">Criar Produto</button>
+  </form>
+

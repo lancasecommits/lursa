@@ -1,0 +1,22 @@
+<a href="/points" class="back-link">← Pontos de Coleta</a>
+
+<h1 class="purple title" style="margin-top:16px;">+ Novo Ponto</h1>
+
+<% if @error %>
+  <p class="error" style="margin-top:16px;"><%= @error %></p>
+<% end %>
+
+<form action="/admin/points" method="post" style="margin-top:20px;">
+  <input type="text"   name="name"    placeholder="Nome do ponto"  required>
+  <input type="text"   name="address" placeholder="Endereço completo" required>
+  <input type="number" name="lat"     placeholder="Latitude (ex: -8.0539)"  step="any" style="max-width:220px;" required>
+  <input type="number" name="lng"     placeholder="Longitude (ex: -34.8811)" step="any" style="max-width:220px;" required>
+  <input type="number" name="points_per_discard" placeholder="Pontos por descarte" min="1" value="10" style="max-width:220px;" required>
+
+  <p class="muted" style="margin-bottom:14px;">
+    Dica: encontre as coordenadas clicando com o botão direito no
+    <a href="https://maps.google.com" target="_blank">Google Maps</a> e copiando lat/lng.
+  </p>
+
+  <button class="btn-roxo" type="submit">Cadastrar Ponto</button>
+</form>

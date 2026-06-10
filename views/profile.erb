@@ -1,0 +1,53 @@
+<h1 class="purple title">Perfil</h1>
+
+<div class="card" style="margin-top:20px;">
+  <p><strong>Nome:</strong> <%= current_user.name.capitalize %></p>
+  <p><strong>Email:</strong> <%= current_user.email %></p>
+  <p><strong>Cargo:</strong> <%= current_user.admin? ? "Administrador(a)" : "Morador(a)" %></p>
+  <span class="points-display"><%= current_user.points %> $L</span>
+</div>
+
+<div class="home-section">
+  <div class="home-section-header">
+    <h2>Descartes realizados</h2>
+    <span class="muted"><%= @discards.size %> no total</span>
+  </div>
+  <% if @discards.empty? %>
+    <p class="muted">Nenhum descarte ainda. Escaneie o QR Code de um ponto de coleta!</p>
+  <% else %>
+    <% @discards.first(5).each do |d| %>
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <strong><%= d[:name] %></strong>
+          <p class="muted"><%= d[:discarded_at].to_s[0..9] %></p>
+        </div>
+        <span class="points-badge">+<%= d[:points_per_discard] %> pts</span>
+      </div>
+    <% end %>
+    <% if @discards.size > 5 %>
+      <p class="muted" style="margin-top:4px;">+ <%= @discards.size - 5 %> descartes anteriores</p>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="home-section">
+  <div class="home-section-header">
+    <h2>Resgates realizados</h2>
+    <span class="muted"><%= @redemptions.size %> no total</span>
+  </div>
+  <% if @redemptions.empty? %>
+    <p class="muted">Nenhum resgate ainda. Confira o <a href="/catalog">catálogo</a>!</p>
+  <% else %>
+    <% @redemptions.each do |r| %>
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <strong><%= r[:name] %></strong>
+          <p class="muted"><%= r[:redeemed_at].to_s[0..9] %></p>
+        </div>
+        <span class="points-badge" style="background:rgba(255,82,82,.08);border-color:rgba(255,82,82,.2);color:#ff8a80;">
+          -<%= r[:points] %> pts
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
