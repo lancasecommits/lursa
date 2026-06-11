@@ -1,12 +1,14 @@
-# Lursa: Plataforma Web para Gestão de Descarte de Lixo Eletrônico
+<div align="center">
+  <img width="500" height="300" alt="Sem título" src="https://github.com/user-attachments/assets/7aed18d0-9697-4a86-a9dd-af80cc4bb235" />
+</div>
+
+# Lursa
 
 > A web platform for managing electronic waste disposal in residential condominiums. Residents earn points for each correct disposal and redeem them for rewards. Building managers handle collection points, the product catalog, and the blog through an admin panel. Developed as a Capstone Project for the **Systems Analysis and Development** program at **Senac College**.
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Senac](https://img.shields.io/badge/Institution-Senac%20College-blue)](https://www.senac.br/)
 [![LGPD](https://img.shields.io/badge/Compliance-LGPD%20Ready-blueviolet)](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
-
----
 
 ## Project Overview
 
@@ -20,11 +22,9 @@
 * **Admin Panel:** Full management of users, collection points, products, and blog posts from a dedicated dashboard.
 * **Informational Blog:** Posts about recycling and sustainability, readable by anyone without login.
 
----
-
 ## LGPD & Data Privacy Compliance
-
-Because this application processes **personal data** from residents (name, email, and disposal/redemption history), privacy by design was a core requirement of this project in compliance with Brazilian Federal Law nº 13.709/2018 (LGPD).
+> [!IMPORTANT]
+> Because this application processes **personal data** from residents (name, email, and disposal/redemption history), privacy by design was a core requirement of this project in compliance with Brazilian Federal Law nº 13.709/2018 (LGPD).
 
 ### Implemented Privacy Standards
 
@@ -32,8 +32,6 @@ Because this application processes **personal data** from residents (name, email
 * **Data Minimization (Art. 6º, III):** Only data strictly necessary for the platform's operation is stored — name, email, password hash, points balance, and transactional history.
 * **Security (Art. 46):** Passwords are hashed with bcrypt and never stored in plaintext. The session secret is loaded exclusively from environment variables, never hardcoded.
 * **Right to Erasure (Art. 18, VI):** Administrators can permanently delete user accounts through the admin panel, removing all associated personal records.
-
----
 
 ## Tech Stack
 
@@ -46,10 +44,7 @@ Because this application processes **personal data** from residents (name, email
 | Auth | bcrypt + Rack sessions |
 | Environment | dotenv |
 
----
-
 ## Getting Started
-
 ### Prerequisites
 
 * [Ruby](https://www.ruby-lang.org/) 3.0+
@@ -58,8 +53,8 @@ Because this application processes **personal data** from residents (name, email
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/lancasecommits/lursa-api.git
-cd lursa-api
+git clone https://github.com/lancasecommits/lursa.git
+cd lursa
 ```
 
 ### 2. Set up environment variables
@@ -94,8 +89,6 @@ ruby app.rb -o 0.0.0.0
 
 Open `http://localhost:4567` in your browser.
 
----
-
 ## API Routes
 
 | Method | Route | Description | Auth |
@@ -119,8 +112,6 @@ Open `http://localhost:4567` in your browser.
 | DELETE | `/admin/points/:id` | Delete a collection point | Admin |
 | GET | `/admin/users` | List all users | Admin |
 | POST | `/admin/users/:id/points` | Manually add points to a user | Admin |
-
----
 
 ## Project Structure
 
@@ -162,8 +153,6 @@ lursa-api/
         └── discard.css     # Disposal confirmation and success screens
 ```
 
----
-
 ## Future Improvements
 
 * **Donor Leaderboard:** Ranking of top contributors by points to increase the competitive gamification element.
@@ -172,18 +161,33 @@ lursa-api/
 * **Reverse Logistics Integration:** Connect with certified e-waste recycling partners to track the destination of collected materials.
 * **PostgreSQL Migration:** Replace SQLite with PostgreSQL for production-grade concurrency support.
 
----
+## Contributing
+
+Contributions are welcome! Here's how to get started:
+
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/my-feature`)
+3. Make your changes and commit them (`git commit -m 'Add my feature'`)
+4. Push to your branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+Please keep the code simple and consistent with the existing style.
 
 ## Authors
 
-* Beatriz Melo Lanteuil — `UI/UX` — [GitHub]()
-* Bruno Lourenço — `Frontend` — [GitHub]()
-* João Gabriel Dornelas — `Product Owner` — [GitHub]()
-* Gabriel Victor — `Frontend` — [GitHub]()
-* Gustavo Lins de Santana Macedo — `Backend` — [GitHub]() · [LinkedIn]()
-* Leonardo Sales — `Backend` — [GitHub]() · [LinkedIn]()
+* Beatriz Melo Lanteuil — `UI/UX` — [GitHub](https://github.com/Belante)
+* Bruno Lourenço Lima de Santana Vasconcelos — `Frontend` — [GitHub](https://github.com/zilla07x)
+* João Gabriel Dornelas de Luna Lopes — `Product Owner` — [GitHub](https://github.com/joaogdornelas)
+* Gabriel Victor Albuquerque de Lira — `Frontend` — [GitHub](https://github.com/gbriiiel)
+* Gustavo Lins de Santana Macedo — `Backend` — [GitHub](https://github.com/gusutabo)
+* Leonardo Sales De Sá Cruz — `Backend` — [GitHub](https://github.com/salerinhow) 
 
 ---
 
-Academic Advisor: Prof. ____________
-Tech English Professor: Prof. Leonardo Trevas
+## Academic Advisor
+
+* Prof. André Luiz Gomes Da Silva - `Project Management & Inovation`
+* Prof. Samantha Grasielle Camara Pimentel `Interaction Design`
+* Prof. Victor Henrique dos Santos Oliveira - `Front End`
+* Prof. Ronierison de Souza Maciel - `Database`
+* Prof. Leonardo Lucena Trevas - `Tech English`
